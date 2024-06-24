@@ -3,9 +3,9 @@ class DijkstraPlot:
     def __init__(self, G, origen):
         self.G = G
         self.origen = origen
-        self.pasos_finales = []  # Lista para almacenar las aristas finales del camino más corto
-        self.descartados = []    # Lista para almacenar las aristas descartadas
-        self.predecesores = {}   # Para rastrear el predecesor de cada nodo
+        self.pasos_finales = []  
+        self.descartados = []    
+        self.predecesores = {}  
         
     def get_shortest_path(self):
         distancias = {node: float('inf') for node in self.G}
@@ -13,7 +13,7 @@ class DijkstraPlot:
         cola = []
         h.heappush(cola, (0, self.origen))
         visitados = {node: False for node in self.G}
-        self.predecesores = {node: None for node in self.G}  # Inicializar los predecesores
+        self.predecesores = {node: None for node in self.G}  
         
         while cola:
             d, u = h.heappop(cola)
@@ -38,5 +38,5 @@ class DijkstraPlot:
         while nodo_actual is not None and self.predecesores[nodo_actual] is not None:
             camino.append((self.predecesores[nodo_actual], nodo_actual))
             nodo_actual = self.predecesores[nodo_actual]
-        camino.reverse()  # Revertir para obtener el camino desde el origen al destino
+        camino.reverse()  
         return camino

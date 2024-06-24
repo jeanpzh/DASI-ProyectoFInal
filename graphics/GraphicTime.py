@@ -16,13 +16,13 @@ def show_graphics(replicas):
     prim_avg = sum(prim_times) / len(prim_times)
     kruskal_avg = sum(kruskal_times) / len(kruskal_times)
     
-    # Calcular el promedio móvil con una ventana de tamaño 3 (ajustable)
-    w_size = 10
+    # Promedio movil con ventana de tamaño 20 para suavizar la grafica
+    w_size = 20
     w = np.ones(w_size)/w_size
     prim_mov_avg = np.convolve(prim_times,w, mode='valid')
     kruskal_mov_avg = np.convolve(kruskal_times, w, mode='valid')
     
-    # Crear subplots
+    # Subplots para mostrar los resultados
     fig, axs = plt.subplots(2, 1, figsize=(10, 8))
     
     # Gráfico de barras para los promedios
